@@ -12,7 +12,7 @@ class Lassieform extends React.Component {
           <div className="card-header" role="tab" id="headingOne">
             <h5 className="mb-0">
               <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                LASSIE Session Report
+                <h5 className="animated rubberBand">LASSIE Session Report </h5>
               </a>
             </h5>
           </div>
@@ -35,7 +35,7 @@ class Lassieform extends React.Component {
                         onChange={this.props.onChange}></input>
                 </div>
                 <div className="form-group">
-                  <button className="btn btn-primary" onClick={this.props.addReport}>Submit Report</button>     
+                  <button className="btn btn-primary animate jello" onClick={this.props.addReport}>Submit Report</button>     
                 </div>
             </div>
           </div>

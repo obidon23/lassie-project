@@ -1,11 +1,10 @@
 // Include the Main React Dependencies
 import React from "react";
+
 // Include the main Child Components
 import Lassieform from "./Lassieform";
 
-import sessionRef from "../database/firebase";
-// import axios from "axios";
-// import Saved from "./Saved";
+import axios from "axios";
 
 // construct Main components
 
@@ -19,6 +18,7 @@ class AddReport extends React.Component {
             sessionDate: '',
             sessionLocation: '',
         }
+        console.log(axios);
     }
     
     onChange(e) {
@@ -29,24 +29,22 @@ class AddReport extends React.Component {
     }
 
     addReport() {
-        let data = {
-                sessionDate: this.state.sessionDate,
-                sessionLocation: this.state.sessionLocation
-        };
-        console.log(data)
-        sessionRef.push( data )         
+        axios.post("http://localhost:8080/addSession", {
+            sessionDate: this.state.sessionDate,
+            sessionLocation: this.state.sessionLocation
+    })
         .then(function (response) {
-          console.log(response);
+            console.log(response);
         })
-        .catch(function (err) {
-          console.log(err);
-        });
-    }
+        .catch(function (error) {
+            console.log(error);
+        });   
+        }
     render() {
         return(
         <div>
             <div className="jumbotron">
-                <h1>Submit your LASSIE Report</h1>
+                <h2 className="animated jello">Submit your LASSIE Report</h2>
             </div>
         
             <Lassieform 

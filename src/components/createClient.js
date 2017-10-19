@@ -3,7 +3,7 @@ import React from "react";
 // Include the main Child Components
 import ClientForm from "./newClient";
 
-import clientRef from "../database/clientFirebase";
+import db from "../database/firebase";
 // import axios from "axios";
 // import Saved from "./Saved";
 
@@ -14,7 +14,7 @@ class CreateClient extends React.Component {
     constructor(props) {
         super(props);
         this.onChange = this.onChange.bind(this);
-        this.addReport = this.addReport.bind(this);
+        this.createClient = this.createClient.bind(this);
         this.state = {
             clientName: '',
             clientEmail: '',
@@ -32,7 +32,7 @@ class CreateClient extends React.Component {
         }
 
     createClient() {
-        alert("it worked");
+        console.log("it worked");
         let data = {
                 clientName: this.state.clientName,
                 clientEmail: this.state.clientEmail,
@@ -40,8 +40,14 @@ class CreateClient extends React.Component {
                 clientCellPhone: this.state.clientCellPhone
         };
         console.log(data)
-        clientRef.push( data )         
+        db.clientRef.push( data )         
         .then(function (response) {
+            this.setState = {
+                clientName: '',
+                clientEmail: '',
+                clientHomePhone: '',
+                clientCellPhone: ''
+            }
           console.log(response);
         })
         .catch(function (err) {
@@ -51,18 +57,12 @@ class CreateClient extends React.Component {
     render() {
         return(
         <div>
-            <div className="jumbotron">
-                <h1>Submit your LASSIE Report</h1>
-            </div>
-        
             <ClientForm 
                 createClient={this.createClient} 
                 onChange={this.onChange}
             />
-            
         </div>
         );
     } 
-
 }
 export default CreateClient;

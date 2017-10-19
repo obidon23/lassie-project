@@ -11,7 +11,17 @@ firebase.initializeApp({
 });
 
 var sessionRef = firebase.database().ref('lassie/sessions');
+var clientRef = firebase.database().ref('lassie/clients');
+var userRef = firebase.database().ref('lassie/users');
 
-export default sessionRef;
+var db = {
+    sessionRef: sessionRef,
+    clientRef: clientRef,
+    userRef: userRef
+};
+
+// var db = "Hi, Kiondra";
+module.exports = db;
+
 
 

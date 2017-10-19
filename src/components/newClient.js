@@ -8,18 +8,18 @@ class ClientForm extends React.Component {
   render() {
     return (
       <div className="card">
-        <div className="card body">
+        <div className="card-body">
 
         </div>
             <div className="card-title">
                 <h3>
-                    Add a new client
+                    Add a New Client
                 </h3>
             </div>
 
         <div id="card-text">
             <div className="form-group">
-                <label htmlFor="clientName">New Client Name</label>
+                <label htmlFor="clientName">Client Name</label>
                 <input type="input" 
                     placeholder="Enter a name" 
                     id="clientName" 
@@ -48,7 +48,7 @@ class ClientForm extends React.Component {
             </div>
 
             <div className="form-group">
-                <button className="btn btn-primary" onClick={this.props.createClient}>Create Client</button>     
+                <button className="btn btn-success" onClick={this.props.createClient}>Create Client</button>     
             </div>
         </div>
         
