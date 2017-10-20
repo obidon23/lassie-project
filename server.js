@@ -7,7 +7,7 @@ var db = require('./src/database/firebase');
 // Create Instance of Express
 var app = express();
 app.use(cors());
-var PORT = process.env.PORT || 8080; // Sets an initial port.
+var PORT = process.env.PORT || 8081; // Sets an initial port.
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,18 +31,19 @@ app.post("/addSession", function(req, res) {
   });
 });  // -------------------------------------------------
 
-app.use(express.static("public"));
-// require("./src/routes/api-routes")(app);
-// -------------------------------------------------
-
-//Route to get the sessions on file
-axios.get('/getSessions')
-.then(function (response) {
-  console.log(response);
+//Route to get the sessions on file.
+app.get('/test', function(req, res) {
+  console.log("The server is working on getting your order");
+  db.sessionRef.once('value')
+  .then(function (snapshot) {
+    console.log("This is the snapshot:" + snapshot);
+    res.send(snapshot);
+  })
+  .catch(function (response) {
+    console.log(response);
+  });
 })
-.catch(function (response) {
-  console.log(response);
-});
+
 
 //Route to add a new client
 // app.post("/addClient", function(req, res) {

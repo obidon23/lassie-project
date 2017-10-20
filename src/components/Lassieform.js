@@ -35,7 +35,7 @@ class Lassieform extends React.Component {
                         onChange={this.props.onChange}></input>
                 </div>
                 <div className="form-group">
-                  <button className="btn btn-primary animate jello" onClick={this.props.addReport}>Submit Report</button>     
+                  <button className="btn btn-primary" onClick={this.props.addReport}>Submit Report</button>     
                 </div>
             </div>
           </div>

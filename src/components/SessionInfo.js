@@ -8,25 +8,22 @@ import axios from "axios";
 class SessionInfo extends React.Component {  
 
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      sessionDate: '',
+      sessionLocation: '',
+    }
   }
 
   render() {
     return (
-      <div className="card">
-        <div className="card-body">
-
-        </div>
-            <div className="card-title">
-                <h3>
-                    Client name here
-                </h3>
-                
-            </div>
-
-        <div id="card-text">
-                 <a href="#"><p>{this.props.sessionDate}</p></a>
-            </div>
+        <div className="card">
+          <div className="card-title">
+            List of Sessions
+          </div>
+          <ul className="list-group list-group-flush">
+              <li className="list-group-item">{this.props.sessionDate}</li>
+          </ul>
         </div>
     )
   }

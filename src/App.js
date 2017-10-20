@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-// import SessionInfo from './components/SessionInfo';
+import SessionInfo from './components/SessionInfo';
+import GetSessions from './components/getSessions';
 // import AddReport from './components/addReport';
+
+
 class App extends Component {
   render() {
     return (
@@ -14,8 +17,8 @@ class App extends Component {
             </div>
           </div>
         </div>
-        {/* <SessionInfo /> */}
-        {/* <AddReport /> */}
+        <SessionInfo />
+        <GetSessions />
       </div>
     );
   }
